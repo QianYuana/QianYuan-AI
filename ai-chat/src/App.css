@@ -1,0 +1,207 @@
+:root {
+  --bg: #0b0c0f;
+  --panel: #131418;
+  --panel-2: #0f1115;
+  --text: #e6e7ea;
+  --subtle: #a3a7b3;
+  --brand: #5b8cff;
+  --ring: rgba(91, 140, 255, 0.4);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 50% -200px, rgba(91,140,255,0.12), transparent), var(--bg);
+  color: var(--text);
+}
+
+/* 容器 */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 落地页头部提问 */
+.hero {
+  margin-top: 18vh;
+  text-align: center;
+}
+.hero .brand-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+}
+.hero-title {
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* 大输入框 */
+.hero-input {
+  width: min(920px, 92vw);
+  margin: 26px auto 0;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid #22232a;
+  border-radius: 28px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.hero-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.input-box {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  outline: none;
+  font-size: 16px;
+}
+.suffix {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--subtle);
+}
+.send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 6px 16px rgba(91,140,255,0.35);
+}
+
+/* 模式按钮 */
+.modes {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+.mode-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #232531;
+  background: #12131a;
+  color: var(--subtle);
+  cursor: pointer;
+}
+.mode-chip.active {
+  color: #dfe7ff;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px var(--ring) inset;
+}
+
+/* 聊天视图 */
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.chat-main {
+  flex: 1;
+  overflow: auto;
+  padding: 24px 0 120px;
+}
+.chat-inner {
+  width: min(860px, 92vw);
+  margin: 0 auto;
+}
+.msg {
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #98a2b3;
+  background: #151821;
+}
+.msg-user { grid-template-columns: 1fr 32px; }
+.msg-user .bubble { justify-self: end; }
+.msg-user .avatar { grid-column: 2; }
+.msg-assistant { grid-template-columns: 32px 1fr; }
+
+.bubble {
+  max-width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+.bubble-user {
+  background: #1e293b;
+}
+.bubble-assistant {
+  background: #12131a;
+  border: 1px solid #232531;
+}
+
+/* Markdown 内容适配，防止溢出 */
+.markdown-body {
+  color: var(--text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.markdown-body p { margin: 0 0 8px; }
+.markdown-body ul, .markdown-body ol { margin: 8px 0 8px 22px; }
+.markdown-body li { margin: 4px 0; }
+.markdown-body code { background: rgba(255,255,255,0.06); padding: 0 4px; border-radius: 4px; }
+.markdown-body pre { background: #0f1115; padding: 10px; border-radius: 8px; overflow: auto; }
+.markdown-body pre code { background: transparent; padding: 0; }
+.markdown-body table { width: 100%; border-collapse: collapse; display: block; overflow: auto; }
+.markdown-body th, .markdown-body td { border: 1px solid #2a2d39; padding: 6px 8px; }
+.markdown-body img { max-width: 100%; height: auto; }
+.markdown-body blockquote { border-left: 3px solid #2b3955; margin: 8px 0; padding: 6px 10px; color: #c8d0dd; background: rgba(43,57,85,0.15); }
+
+/* 底部输入区（聊天态） */
+.chat-input-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.chat-input {
+  width: min(860px, 92vw);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid #22232a;
+  border-radius: 20px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+}
+.typing {
+  display: inline-block;
+  border-right: 2px solid #9aa4b2;
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret { 50% { border-color: transparent; } }
