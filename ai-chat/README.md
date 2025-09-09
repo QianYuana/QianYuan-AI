@@ -1,15 +1,50 @@
-# React + TypeScript + Vite
+# ai-chat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ai-chat 是一个基于React + TypeScript + Vite的前端聊天界面，用于与AI后端服务进行交互。
 
-Currently, two official plugins are available:
+## 功能特点
+- 提供直观的聊天界面
+- 支持消息显示和输入
+- 使用Ant Design组件库构建现代化UI
+- 支持Markdown格式消息展示
+- 响应式设计，适配不同设备
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 技术栈
+- React
+- TypeScript
+- Vite
+- Ant Design
+- React Markdown
+- ahooks
 
-## Expanding the ESLint configuration
+## 运行方法
+```bash
+# 安装依赖
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# 开发模式运行
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览生产构建
+npm run preview
+
+# 代码 lint 检查
+npm run lint
+```
+开发模式默认运行在 http://localhost:5173
+
+## 项目结构
+- `src/App.tsx`: 应用入口组件
+- `src/main.tsx`: 渲染入口
+- `src/component/`: 自定义组件
+- `src/App.css`: 应用样式
+- `vite.config.ts`: Vite配置文件
+
+## 扩展配置
+如需扩展ESLint配置，可参考以下示例：
 
 ```js
 export default tseslint.config([
@@ -28,42 +63,6 @@ export default tseslint.config([
 
       // Other configs...
     ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
   },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+]);
 ```
