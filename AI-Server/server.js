@@ -104,7 +104,7 @@ app.post("/api/chat/stream", async (req, res) => {
     for await (const chunk of stream) {
       try {
         const delta = chunk?.choices?.[0]?.delta;
-        console.log("delta", delta);
+        // console.log("delta", delta);
 
         if (delta && Array.isArray(delta.tool_calls)) {
           for (const tc of delta.tool_calls) {
@@ -127,7 +127,7 @@ app.post("/api/chat/stream", async (req, res) => {
 
     // 执行收集到的工具调用，返回 tool_result 事件
     if (pendingToolCalls.size > 0) {
-      console.log("待执行的工具调用:", pendingToolCalls);
+      // console.log("待执行的工具调用:", pendingToolCalls);
       for (const [, call] of pendingToolCalls) {
         const name = call.name;
         let args = {};

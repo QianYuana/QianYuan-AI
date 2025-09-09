@@ -111,7 +111,7 @@ function App() {
 
         if (done) break;
         const chunk = decoder.decode(value, { stream: true });
-        console.log("done", chunk);
+        // console.log("done", chunk);
         // SSE: 逐行解析以 data: 开头的行
         const lines = chunk.split(/\n/);
         for (const line of lines) {
