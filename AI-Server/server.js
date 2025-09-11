@@ -9,8 +9,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const ALIYUN_API_KEY =
-  process.env.ALIYUN_API_KEY || "sk-a328015e1c9a41608de7a7a3bba38289";
+const ALIYUN_API_KEY = process.env.ALIYUN_API_KEY;
 const ALIYUN_BASE_URL =
   process.env.ALIYUN_BASE_URL ||
   "https://dashscope.aliyuncs.com/compatible-mode/v1";
